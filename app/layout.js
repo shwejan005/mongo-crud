@@ -1,5 +1,6 @@
 import { League_Spartan } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const font = League_Spartan({
   subsets: ["latin"]
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${font.className} antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
