@@ -18,7 +18,9 @@ export default function RootLayout({ children }) {
         className={`${font.className} antialiased`}
       >
         <Navbar />
-        {children}
+        <main className="mt-4">
+          {children}
+        </main>
       </body>
     </html>
   );
