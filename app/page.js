@@ -1,8 +1,9 @@
+import List from '@/components/List'
 import React from 'react'
 
 function page() {
   return (
-    <div>page</div>
+    <List />
   )
 }
 
