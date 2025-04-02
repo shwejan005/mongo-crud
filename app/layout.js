@@ -1,6 +1,7 @@
 import { League_Spartan } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { Toaster } from "sonner";
 
 const font = League_Spartan({
   subsets: ["latin"]
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         <main className="mt-4">
           {children}
         </main>
+        <Toaster />
       </body>
     </html>
   );

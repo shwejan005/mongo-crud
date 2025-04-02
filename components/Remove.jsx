@@ -2,21 +2,29 @@
 
 import { useRouter } from "next/navigation";
 import { TrashIcon } from "lucide-react";
+import { toast } from "sonner";
 
 export default function RemoveBtn({ id }) {
   const router = useRouter();
-  const removeTopic = async () => {
-    const confirmed = confirm("Are you sure?");
 
-    if (confirmed) {
-      const res = await fetch(`http://localhost:3000/api/Topic?id=${id}`, {
-        method: "DELETE",
-      });
+  const removeTopic = () => {
+    toast("Are you sure you want to delete this topic?", {
+      action: {
+        label: "Yes, delete",
+        onClick: async () => {
+          const res = await fetch(`http://localhost:3000/api/Topic?id=${id}`, {
+            method: "DELETE",
+          });
 
-      if (res.ok) {
-        router.refresh();
-      }
-    }
+          if (res.ok) {
+            toast.success("Topic deleted successfully!");
+            router.refresh();
+          } else {
+            toast.error("Failed to delete topic!");
+          }
+        },
+      },
+    });
   };
 
   return (
